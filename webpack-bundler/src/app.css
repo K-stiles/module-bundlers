@@ -1,0 +1,8 @@
+.container{
+  display: flex;
+  background-color: teal;
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 2em;
+}

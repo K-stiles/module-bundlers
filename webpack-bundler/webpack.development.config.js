@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -13,6 +14,10 @@ module.exports = {
       '@': path.resolve(__dirname, 'src/*'), // maps @something to path/to/something
     },
   },
+   plugins: [new HtmlWebpackPlugin({
+    template: "./public/index.html",
+    path: "index.html",
+   })],
   module: {
     rules: [
       {
@@ -28,6 +33,10 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
