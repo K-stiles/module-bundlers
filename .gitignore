@@ -1,9 +1,16 @@
 /node_modules
-/webpack-bundler/node_modules
-/vite-bundler/node_modules
-
 /dist
 /build
+
+# webpack-bundler directory
+/webpack-bundler/node_modules
+/webpack-bundler/dist
+/webpack-bundler/build
+
+# vite-bundler directory
+/vite-bundler/node_modules
+/vite-bundler/dist
+/vite-bundler/build
 
 *.log
 .env*
