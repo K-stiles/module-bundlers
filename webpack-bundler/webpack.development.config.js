@@ -7,6 +7,12 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
+  resolve: {
+    extensions: [".js", "jsx"],
+    alias: {
+      '@': path.resolve(__dirname, 'src/*'), // maps @something to path/to/something
+    },
+  },
   module: {
     rules: [
       {
