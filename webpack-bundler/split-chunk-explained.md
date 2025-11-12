@@ -1,5 +1,6 @@
 
 # 🪓SplitChunk Explained
+![webpack module bundler](webpack.png)
 
 ## Summary and Impact:
 

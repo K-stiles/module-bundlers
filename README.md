@@ -112,6 +112,8 @@ No additional environment variables are required for basic functionality.
 ### Running the Applications
 
 #### Webpack Bundler
+![webpack module bundler](../module-bundlers/webpack-bundler/webpack.png)
+
 
 **Development Mode:**
 ```bash
