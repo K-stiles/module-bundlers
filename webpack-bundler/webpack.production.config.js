@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -21,7 +21,11 @@ module.exports = {
     template: "./public/index.html",
     path: "index.html",
    }),
-   new MiniCssExtractPlugin()
+   new MiniCssExtractPlugin(),
+   new webpack.DefinePlugin({
+    SERVER_API_URL: JSON.stringify('https://api.example.com'),
+    SECRETE_API_KEY: JSON.stringify('your-secrete-api-key'),
+   })
   ],
   module: {
     rules: [
