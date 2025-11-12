@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -10,12 +11,21 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
+    clean: true,
   },
   resolve: {
     extensions: [".js", "jsx"],
     alias: {
-      "@": path.resolve(__dirname, "src/*"), // maps @something to path/to/something
+      // wrong: path.resolve shouldn’t include the * — it’s a filesystem path, not a glob pattern
+      // "@": path.resolve(__dirname, "src/*"),
+      // correct
+      "@": path.resolve(__dirname, "src"),
     },
+  },
+ performance: {
+    hints: "warning",
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -74,7 +84,7 @@ module.exports = {
     // TerserPlugin is the default - it compresses ES6+ code, removes dead code, and performs advanced optimizations
     // You can add additional minimizers here (e.g., CssMinimizerPlugin for CSS)
     // Overriding this array replaces webpack's default minimizers, so include all needed plugins
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
 
     splitChunks: {
       // chunks: Defines which chunks are eligible for optimization/splitting

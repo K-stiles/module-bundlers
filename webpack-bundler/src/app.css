@@ -20,6 +20,7 @@ img{
 .btn{
   padding: .5rem 1.5rem;
   height: 40px;
+  width: 500px;
   background-color: tomato;
   color: white;
   font-weight: bold;

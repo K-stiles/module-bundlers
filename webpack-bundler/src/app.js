@@ -3,8 +3,11 @@ import "./app.css";
 import testImage from "../public/test-image.jpeg";
 import Button from "./components/button";
 const DynamicComponent = React.lazy(() =>
-  import(/* webpackChunkName: DynamicComponentChunk*/ "./components/dynamic-component")
+  import("./components/dynamic-component")
 );
+// const DynamicComponent = React.lazy(() =>
+//   import(/* webpackChunkName: DynamicComponentChunk*/ "./components/dynamic-component")
+// );
 
 export default function App() {
   return (
