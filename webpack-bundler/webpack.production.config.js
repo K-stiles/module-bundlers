@@ -164,7 +164,7 @@ module.exports = {
 
           // minChunks: Only extracts code used by 2+ chunks (same as global setting)
           // Ensures only genuinely shared code is split out, not one-off modules
-          minChunks: 2,
+          minChunks: 1,
 
           // priority: Lowest priority (-20) means vendor and other cache groups take precedence
           // This is the "catch-all" group - only used when no higher-priority group matches
