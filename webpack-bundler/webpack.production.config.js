@@ -1,7 +1,8 @@
 const path = require("path");
+const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -23,7 +24,7 @@ module.exports = {
    }),
    new MiniCssExtractPlugin(),
    new webpack.DefinePlugin({
-    SERVER_API_URL: JSON.stringify('https://api.example.com'),
+    SERVER_API_URL: JSON.stringify('https://prod.api.example.com'),
     SECRETE_API_KEY: JSON.stringify('your-secrete-api-key'),
    })
   ],
@@ -56,5 +57,9 @@ module.exports = {
         type: "asset/resource",
       }
     ],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
 };
